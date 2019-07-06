@@ -23,7 +23,7 @@ public class FlagActivity extends AppCompatActivity {
     };
 
     private void addFlag(String countryName, GridLayout layout) {
-        View flag = getLayoutInflater().inflate(R.layout.flag, layout);
+        View flag = getLayoutInflater().inflate(R.layout.flag, null);
         System.out.println(countryName);
 
 
@@ -34,6 +34,8 @@ public class FlagActivity extends AppCompatActivity {
         ImageView imgv = flag.findViewById(R.id.flagImg);
         int flagImgId = getResources().getIdentifier(countryName.toLowerCase(),"drawable", getPackageName());
         imgv.setImageResource(flagImgId);
+
+        layout.addView(flag);
 
     }
 
