@@ -17,7 +17,7 @@ public class FlagActivity extends AppCompatActivity {
         Button butt =  new Button(this);
         butt.setText("my button");
         LinearLayout layout = findViewById(R.id.flagLayout);
-        layout.addView(butt);
+        layout.addView(butt, 1);
 
     }
 }
