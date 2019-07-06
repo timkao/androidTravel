@@ -1,5 +1,6 @@
 package com.example.travelapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -43,7 +44,13 @@ public class FlagActivity extends AppCompatActivity {
         imgv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(FlagActivity.this, countryName, Toast.LENGTH_LONG).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(FlagActivity.this);
+                builder.setMessage("You clicked " + countryName);
+                builder.setTitle("My Dialog");
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
         // solution: add the flag to the layout after everything is cooked
