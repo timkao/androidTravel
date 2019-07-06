@@ -3,6 +3,7 @@ package com.example.travelapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -18,10 +19,12 @@ public class FlagActivity extends AppCompatActivity {
         Button butt =  new Button(this);
         butt.setText("my button");
         LinearLayout layout = findViewById(R.id.flagLayout);
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
+        params.gravity = Gravity.CENTER;
+        params.weight = 1;
         butt.setLayoutParams(params);
 
         layout.addView(butt, 1);
