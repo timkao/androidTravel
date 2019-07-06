@@ -2,16 +2,20 @@ package com.example.travelapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Layout;
+import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FlagActivity extends AppCompatActivity {
 
@@ -22,7 +26,7 @@ public class FlagActivity extends AppCompatActivity {
             "Spain"
     };
 
-    private void addFlag(String countryName, GridLayout layout) {
+    private void addFlag(final String countryName, GridLayout layout) {
         View flag = getLayoutInflater().inflate(R.layout.flag, null); // solution: put null, since we are not in hurry to insert into the layout
         System.out.println(countryName);
 
@@ -32,10 +36,16 @@ public class FlagActivity extends AppCompatActivity {
         TextView tv = flag.findViewById(R.id.flagTxt);
         tv.setText(countryName);
 
-        ImageView imgv = flag.findViewById(R.id.flagImg);
+        ImageButton imgv = flag.findViewById(R.id.flagImg);
         int flagImgId = getResources().getIdentifier(countryName.toLowerCase(),"drawable", getPackageName());
         imgv.setImageResource(flagImgId);
 
+        imgv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(FlagActivity.this, countryName, Toast.LENGTH_LONG).show();
+            }
+        });
         // solution: add the flag to the layout after everything is cooked
         layout.addView(flag);
 
