@@ -23,10 +23,11 @@ public class FlagActivity extends AppCompatActivity {
     };
 
     private void addFlag(String countryName, GridLayout layout) {
-        View flag = getLayoutInflater().inflate(R.layout.flag, null);
+        View flag = getLayoutInflater().inflate(R.layout.flag, null); // solution: put null, since we are not in hurry to insert into the layout
         System.out.println(countryName);
 
 
+        // solution: waiting until all the settings are cooked
         // IMPORTANT!! should be flag.findViewById (inside flag.xml) not just findViewById (whole activity)
         TextView tv = flag.findViewById(R.id.flagTxt);
         tv.setText(countryName);
@@ -35,6 +36,7 @@ public class FlagActivity extends AppCompatActivity {
         int flagImgId = getResources().getIdentifier(countryName.toLowerCase(),"drawable", getPackageName());
         imgv.setImageResource(flagImgId);
 
+        // solution: add the flag to the layout after everything is cooked
         layout.addView(flag);
 
     }
